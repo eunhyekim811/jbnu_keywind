@@ -2,7 +2,7 @@
 <#import "../atoms/alert.ftl" as alert>
 
 <#macro kw providers=[]>
-  <@alert.kw color="self">
+  <@alert.kw color="info">
     <ul style="list-style-type: disc; padding-left: 20px;">
       <li>${msg("guide1")}</li>
       <li>${msg("guide2")}</li>

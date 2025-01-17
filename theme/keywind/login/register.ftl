@@ -4,6 +4,7 @@
 <#import "components/atoms/form.ftl" as form>
 <#import "components/atoms/input.ftl" as input>
 <#import "components/atoms/link.ftl" as link>
+<#import "./components/atoms/alert.ftl" as alert>
 
 <@layout.registrationLayout
   displayMessage=!messagesPerField.existsError("firstName", "lastName", "email", "username", "password", "password-confirm")
@@ -13,26 +14,12 @@
   <#if section="header">
     ${msg("registerTitle")}
   <#elseif section="form">
+    <@alert.kw color="info">
+      <ul style="list-style-type: disc; padding-left: 20px;">
+        <li>${msg("regist")}</li>
+      </ul>
+    </@alert.kw>
     <@form.kw action=url.registrationAction method="post">
-      <@input.kw
-        autocomplete="given-name"
-        autofocus=true
-        invalid=messagesPerField.existsError("firstName")
-        label=msg("firstName")
-        message=kcSanitize(messagesPerField.get("firstName"))
-        name="firstName"
-        type="text"
-        value=(register.formData.firstName)!''
-      />
-      <@input.kw
-        autocomplete="family-name"
-        invalid=messagesPerField.existsError("lastName")
-        label=msg("lastName")
-        message=kcSanitize(messagesPerField.get("lastName"))
-        name="lastName"
-        type="text"
-        value=(register.formData.lastName)!''
-      />
       <@input.kw
         autocomplete="email"
         invalid=messagesPerField.existsError("email")

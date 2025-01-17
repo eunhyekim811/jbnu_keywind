@@ -57,14 +57,14 @@
         * ${msg("requiredFields")}
       </p>
     </#if>
-    <br>
-    <p>문의 : 전북대 JEduTools 운영팀 ( jedutools@gmail.com )
   </#assign>
 
   <#assign cardFooter>
     <#if displayInfo>
       <#nested "info">
     </#if>
+    <br>
+    <p>문의 : 전북대 JEduTools 운영팀 ( jedutools@gmail.com )
   </#assign>
 
   <html<#if realm.internationalizationEnabled> lang="${locale.currentLanguageTag}"</#if>>
